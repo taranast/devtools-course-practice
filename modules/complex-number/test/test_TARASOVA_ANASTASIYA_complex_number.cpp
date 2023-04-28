@@ -10,22 +10,24 @@ ComplexNumber num2(-1, 0);
 ASSERT_EQ(num1*num1, num2);
 }
 
-TEST(Tarasova_Anastasiya_ComplexNumberTest, Fourth_D_Im) {
-ComplexNumber num1(0, 1);
-ComplexNumber num2(1, 0);
-ASSERT_EQ(num1*num1*num1*num1, num2);
+TEST(Tarasova_Anastasiya_ComplexNumberTest, Div_By_Zero) {
+ComplexNumber num1(25, 6);
+ComplexNumber num2(0, 0);
+ASSERT_THROW(num1/num2, std::string);
 }
 
-TEST(Tarasova_Anastasiya_ComplexNumberTest, Fifth_D_Im) {
-ComplexNumber num1(0, 1);
-ComplexNumber num2(0, 1);
-ASSERT_EQ(num1 * num1 * num1 * num1*num1, num2);
+TEST(Tarasova_Anastasiya_ComplexNumberTest, Default_Constructor) {
+ComplexNumber number;
+ASSERT_EQ(number.getIm(), 0);
+ASSERT_EQ(number.getRe(), 0);
 }
 
-TEST(Tarasova_Anastasiya_ComplexNumberTest, Cubing_Im) {
-ComplexNumber num1(0, 1);
-ComplexNumber num2(0, -1);
-ASSERT_EQ(num1 * num1 * num1, num2);
+TEST(Tarasova_Anastasiya_ComplexNumberTest, Setters) {
+ComplexNumber number;
+number.setRe(8);
+number.setIm(9);
+ASSERT_EQ(number.getRe(), 8);
+ASSERT_EQ(number.getIm(), 9);
 }
 
 TEST(Tarasova_Anastasiya_ComplexNumberTest, Sum_Conjugate) {
@@ -33,18 +35,4 @@ ComplexNumber num1(42, 24);
 ComplexNumber num2(42, -24);
 ComplexNumber num3(84, 0);
 ASSERT_EQ(num1 + num2, num3);
-}
-
-TEST(Tarasova_Anastasiya_ComplexNumberTest, Mult_Conjugate) {
-ComplexNumber num1(42, 24);
-ComplexNumber num2(42, -24);
-ComplexNumber num3(2340, 0);
-ASSERT_EQ(num1 * num2, num3);
-}
-
-TEST(Tarasova_Anastasiya_ComplexNumberTest, Div_And_Mult) {
-ComplexNumber num1(42, 24);
-ComplexNumber num2(42, 13);
-ComplexNumber num3 = num1*num2;
-ASSERT_EQ(num1, num3/num2);
 }
