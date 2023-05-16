@@ -57,7 +57,8 @@ double Tetrahedron(const double& Side)
     return V;
 }
 
-double Parallelepiped(const double& Side1, const double& Side2, const double& Side3)
+double Parallelepiped(const double& Side1, const double& Side2,
+ const double& Side3)
 {
     if (Side1 <= 0 || Side2 <= 0 || Side3 <= 0) {
         throw std::string("Incorrect data");
@@ -66,10 +67,10 @@ double Parallelepiped(const double& Side1, const double& Side2, const double& Si
     return V;
 }
 
-double TruncatedCylinder(const double& BigHeight, const double& SmallHeight, const double& MajorSemiaxis, const double& SmallSemiaxis)
+double TruncatedCylinder(const double& BigHeight, const double& SmallHeight,
+ const double& MajorSemiaxis, const double& SmallSemiaxis)
 {
-    if (MajorSemiaxis <= 0 || BigHeight <= 0 || SmallSemiaxis <= 0 || SmallHeight<=0 || SmallSemiaxis > MajorSemiaxis || SmallHeight > BigHeight)
-    {
+    if (MajorSemiaxis <= 0 || BigHeight <= 0 || SmallSemiaxis <= 0 || SmallHeight<=0 || SmallSemiaxis > MajorSemiaxis || SmallHeight > BigHeight) {
         throw std::string("Incorrect data");
     }
     double V = (3.1415926535 * MajorSemiaxis * SmallSemiaxis * (SmallHeight + BigHeight)) / 2;
@@ -95,90 +96,82 @@ double Torus(const double& OuterRadius, const double& InnerRadius)
     return V;
 }
 
-double Barrel(const double& BallRadius, const double& BarrelRadius)
-{
-    if (BallRadius <= 0 || BarrelRadius <=0 || BallRadius<BarrelRadius)
-    {
+double Barrel(const double& BallRadius, const double& BarrelRadius) {
+    if (BallRadius <= 0 || BarrelRadius <=0 || BallRadius < BarrelRadius) {
         throw std::string("Incorrect data");
     }
-    double V = (2* 3.1415926535 *sqrt(BallRadius*BallRadius - BarrelRadius*BarrelRadius)*(2*BallRadius*BallRadius+BarrelRadius*BarrelRadius))/3;
+    double V = (2* 3.1415926535 *sqrt(
+BallRadius*BallRadius - BarrelRadius*BarrelRadius)*(
+2*BallRadius*BallRadius+BarrelRadius*BarrelRadius))/3;
     return V;
 }
 
-double Tube(const double& OuterRadius, const double& InnerRadius, const double& Height)
-{
-    if (OuterRadius <= 0 || Height <= 0 || InnerRadius <=0 || InnerRadius >= OuterRadius)
-    {
+double Tube(const double& OuterRadius, const double& InnerRadius,
+ const double& Height) {
+    if (OuterRadius <= 0 || Height <= 0 || InnerRadius <=0 || InnerRadius >= OuterRadius) {
         throw std::string("Incorrect data");
     }
-    double V = EllipticalCylinder(Height, OuterRadius, OuterRadius) - EllipticalCylinder(Height, InnerRadius, InnerRadius);
+    double V = EllipticalCylinder(Height, OuterRadius,
+ OuterRadius) - EllipticalCylinder(Height, InnerRadius, InnerRadius);
     return V;
 }
 
-double Ellipsoid(const double& MajorSemiaxis, const double& MiddleSemiaxis, const double& SmallSemiaxis)
-{
-    if (MajorSemiaxis <= 0 || MiddleSemiaxis <= 0 || SmallSemiaxis <=0 || MajorSemiaxis < MiddleSemiaxis || MajorSemiaxis < SmallSemiaxis || MiddleSemiaxis < SmallSemiaxis)
-    {
+double Ellipsoid(const double& MajorSemiaxis, const double& MiddleSemiaxis, const double& SmallSemiaxis) {
+    if (MajorSemiaxis <= 0 || MiddleSemiaxis <= 0 || SmallSemiaxis <=0 || MajorSemiaxis < MiddleSemiaxis || MajorSemiaxis < SmallSemiaxis || MiddleSemiaxis < SmallSemiaxis) {
         throw std::string("Incorrect data");
     }
     double V = (4 * 3.1415926535 * MajorSemiaxis * MiddleSemiaxis * SmallSemiaxis) / 3;
     return V;
 }
 
-double EllipticalParaboloid(const double& Height, const double& MajorSemiaxis, const double& SmallSemiaxis)
-{
-    if (MajorSemiaxis <= 0 || Height <= 0 || SmallSemiaxis <= 0 || SmallSemiaxis > MajorSemiaxis)
-    {
+double EllipticalParaboloid(const double& Height,
+ const double& MajorSemiaxis, const double& SmallSemiaxis) {
+    if (MajorSemiaxis <= 0 || Height <= 0 || SmallSemiaxis <= 0 || SmallSemiaxis > MajorSemiaxis) {
         throw std::string("Incorrect data");
     }
     double V = (3.1415926535 * MajorSemiaxis * SmallSemiaxis * Height) / 2;
     return V;
 }
 
-double EllipticalCone(const double& Height, const double& MajorSemiaxis, const double& SmallSemiaxis)
-{
-    if (MajorSemiaxis <= 0 || Height <= 0 || SmallSemiaxis <=0 || SmallSemiaxis > MajorSemiaxis)
-    {
+double EllipticalCone(const double& Height, const double& MajorSemiaxis, const double& SmallSemiaxis) {
+    if (MajorSemiaxis <= 0 || Height <= 0 || SmallSemiaxis <=0 || SmallSemiaxis > MajorSemiaxis) {
         throw std::string("Incorrect data");
     }
     double V = (3.1415926535 * MajorSemiaxis * SmallSemiaxis * Height) / 3;
     return V;
 }
 
-double EllipticalCylinder(const double& Height, const double& MajorSemiaxis, const double& SmallSemiaxis)
-{
-    if (MajorSemiaxis <= 0 || Height <= 0 || SmallSemiaxis<=0 || SmallSemiaxis> MajorSemiaxis)
-    {
+double EllipticalCylinder(const double& Height, const double& MajorSemiaxis,
+ const double& SmallSemiaxis) {
+    if (MajorSemiaxis <= 0 || Height <= 0 || SmallSemiaxis<=0 || SmallSemiaxis> MajorSemiaxis) {
         throw std::string("Incorrect data");
     }
     double V = 3.1415926535 * MajorSemiaxis * SmallSemiaxis * Height;
     return V;
 }
 
-double EquilateralTruncatedPyramid(const double& Height, const double& BigSide, const double& SmallSide, const unsigned int& Edges)
-{
-    if (BigSide <= 0 || Height <= 0 || SmallSide <=0 || Edges<3 || SmallSide>BigSide)
-    {
+double EquilateralTruncatedPyramid(const double& Height,
+ const double& BigSide, const double& SmallSide,
+ const unsigned int& Edges) {
+    if (BigSide <= 0 || Height <= 0 || SmallSide <=0 || Edges<3 || SmallSide>BigSide) {
         throw std::string("Incorrect data");
     }
-    double V = EquilateralPyramid((BigSide*Height)/(BigSide - SmallSide), BigSide, Edges) - EquilateralPyramid((SmallSide * Height) / (BigSide - SmallSide), SmallSide, Edges);
+    double V = EquilateralPyramid((BigSide*Height)/(
+BigSide - SmallSide), BigSide, Edges) - EquilateralPyramid(
+(SmallSide * Height) / (BigSide - SmallSide), SmallSide, Edges);
     return V;
 }
 
-double Octahedron(const double& Side)
-{
-    if (Side <=0)
-    {
+double Octahedron(const double& Side) {
+    if (Side <=0) {
         throw std::string("Incorrect data");
     }
     double V = (sqrt(2) * Side * Side * Side) / 3;
     return V;
 }
 
-double Dodecahedron(const double& Side)
-{
-    if (Side <= 0)
-    {
+double Dodecahedron(const double& Side) {
+    if (Side <= 0) {
         throw std::string("Incorrect data");
     }
     double V = ((15 + 7 * sqrt(5)) * Side * Side * Side) / 4;
@@ -205,32 +198,28 @@ double EquilateralPolyhedron(const unsigned int& Edges, const unsigned int& Vert
     return V;
 }
 
-double Prizm(const double& Height, const double& Square)
-{
-    if (Height <= 0 || Square <= 0)
-    {
+double Prizm(const double& Height, const double& Square) {
+    if (Height <= 0 || Square <= 0) {
         throw std::string("Incorrect data");
     }
     double V = Height * Square;
     return V;
 }
 
-double Pyramid(const double& Height, const double& Square)
-{
-    if (Height <= 0 || Square <= 0)
-    {
+double Pyramid(const double& Height, const double& Square) {
+    if (Height <= 0 || Square <= 0) {
         throw std::string("Incorrect data");
     }
     double V = (Height * Square) / 3;
     return V;
 }
 
-double TruncatedPyramid(const double& Height, const double& BigSquare, const double& SmallSquare)
-{
-    if (Height <= 0 || BigSquare <= 0 || SmallSquare<=0)
-    {
+double TruncatedPyramid(const double& Height, const double& BigSquare, const double& SmallSquare) {
+    if (Height <= 0 || BigSquare <= 0 || SmallSquare<=0) {
         throw std::string("Incorrect data");
     }
-    double V = Pyramid((Height * sqrt(BigSquare)) / (sqrt(BigSquare) - sqrt(SmallSquare)), BigSquare) - Pyramid((Height * sqrt(SmallSquare)) / (sqrt(BigSquare) - sqrt(SmallSquare)), SmallSquare);
+    double V = Pyramid((Height * sqrt(BigSquare)) / (
+sqrt(BigSquare) - sqrt(SmallSquare)), BigSquare) - Pyramid((Height * sqrt(
+SmallSquare)) / (sqrt(BigSquare) - sqrt(SmallSquare)), SmallSquare);
     return V;
 }
