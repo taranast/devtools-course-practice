@@ -11,7 +11,7 @@
     double BallLayer(const double& Radius1, const double& Radius2,
  const double& Height);
     double EquilateralPyramid(const double& Height, const double& Side,
- const unsigned int& Edges);
+ const int& Edges);
     double Tetrahedron(const double& Side);
     double Parallelepiped(const double& Side1, const double& Side2,
  const double& Side3);
@@ -19,7 +19,7 @@
  const double& SmallHeight, const double& MajorSemiaxis,
  const double& SmallSemiaxis);
     double EquilateralPrism(const double& Height,
- const double& Side, const unsigned int& Edges);
+ const double& Side, const int& Edges);
     double Torus(const double& OuterRadius, const double& InnerRadius);
     double Barrel(const double& BallRadius, const double& BarrelRadius);
     double Tube(const double& OuterRadius,
@@ -34,12 +34,12 @@
  const double& MajorSemiaxis, const double& SmallSemiaxis);
     double EquilateralTruncatedPyramid(const double& Height,
  const double& BigSide, const double& SmallSide,
- const unsigned int& Edges);
+ const int& Edges);
     double Octahedron(const double& Side);
     double Dodecahedron(const double& Side);
     double Icosahedron(const double& Side);
-    double EquilateralPolyhedron(const unsigned int& Edges,
- const unsigned int& Vertexes, const double& Side,
+    double EquilateralPolyhedron(const int& Edges,
+ const int& Vertexes, const double& Side,
  const double& DescribedSphereRadius);
     double Prizm(const double& Height, const double& Square);
     double Pyramid(const double& Height, const double& Square);

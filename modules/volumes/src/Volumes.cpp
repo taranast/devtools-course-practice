@@ -40,8 +40,7 @@ double BallSector(const double& BallRadius, const double& SegmentHeight) {
 }
 
 double BallLayer(const double& Radius1, const double& Radius2,
- const double& Height)
-{
+ const double& Height) {
     if (Radius1 <= 0 || Height <= 0 || Radius2 <= 0) {
         throw std::string("Incorrect data");
     }
@@ -51,8 +50,7 @@ Radius1 * Radius1 + Radius2 * Radius2 + (Height * Height) / 3)) / 2;
 }
 
 double EquilateralPyramid(const double& Height, const double& Side,
- const unsigned int& Edges)
-{
+ const int& Edges) {
     if (Side <= 0 || Height <= 0 || Edges < 3) {
         throw std::string("Incorrect data");
     }
@@ -61,8 +59,7 @@ double EquilateralPyramid(const double& Height, const double& Side,
     return V;
 }
 
-double Tetrahedron(const double& Side)
-{
+double Tetrahedron(const double& Side) {
     if (Side <= 0) {
         throw std::string("Incorrect data");
     }
@@ -82,7 +79,7 @@ double Parallelepiped(const double& Side1, const double& Side2,
 double TruncatedCylinder(const double& BigHeight, const double& SmallHeight,
  const double& MajorSemiaxis, const double& SmallSemiaxis) {
     if (MajorSemiaxis <= 0 || BigHeight <= 0
-|| SmallSemiaxis <= 0 || SmallHeight<=0
+|| SmallSemiaxis <= 0 || SmallHeight <= 0
 || SmallSemiaxis > MajorSemiaxis || SmallHeight > BigHeight) {
         throw std::string("Incorrect data");
     }
@@ -92,7 +89,7 @@ SmallHeight + BigHeight)) / 2;
 }
 
 double EquilateralPrism(const double& Height, const double& Side,
- const unsigned int& Edges) {
+ const int& Edges) {
     if (Side <= 0 || Height <= 0 || Edges < 3) {
         throw std::string("Incorrect data");
     }
@@ -101,14 +98,14 @@ double EquilateralPrism(const double& Height, const double& Side,
     return V;
 }
 
-double Torus(const double& OuterRadius, const double& InnerRadius)
-{
+double Torus(const double& OuterRadius, const double& InnerRadius) {
     if (OuterRadius <= 0 || InnerRadius <= 0
-|| OuterRadius < InnerRadius)
-    {
+|| OuterRadius < InnerRadius) {
         throw std::string("Incorrect data");
     }
-    double V = (3.1415926535 * 3.1415926535 *(OuterRadius+InnerRadius)*(OuterRadius - InnerRadius)*(OuterRadius - InnerRadius))/4;
+    double V = (3.1415926535 * 3.1415926535 *(
+OuterRadius+InnerRadius)*(OuterRadius - InnerRadius)*(
+OuterRadius - InnerRadius))/4;
     return V;
 }
 
@@ -134,7 +131,8 @@ double Tube(const double& OuterRadius, const double& InnerRadius,
     return V;
 }
 
-double Ellipsoid(const double& MajorSemiaxis, const double& MiddleSemiaxis, const double& SmallSemiaxis) {
+double Ellipsoid(const double& MajorSemiaxis,
+ const double& MiddleSemiaxis, const double& SmallSemiaxis) {
     if (MajorSemiaxis <= 0 || MiddleSemiaxis <= 0
 || SmallSemiaxis <= 0 || MajorSemiaxis < MiddleSemiaxis
 || MajorSemiaxis < SmallSemiaxis || MiddleSemiaxis < SmallSemiaxis) {
@@ -154,7 +152,8 @@ double EllipticalParaboloid(const double& Height,
     return V;
 }
 
-double EllipticalCone(const double& Height, const double& MajorSemiaxis, const double& SmallSemiaxis) {
+double EllipticalCone(const double& Height,
+ const double& MajorSemiaxis, const double& SmallSemiaxis) {
     if (MajorSemiaxis <= 0 || Height <= 0 || SmallSemiaxis <=0
 || SmallSemiaxis > MajorSemiaxis) {
         throw std::string("Incorrect data");
@@ -175,7 +174,7 @@ double EllipticalCylinder(const double& Height, const double& MajorSemiaxis,
 
 double EquilateralTruncatedPyramid(const double& Height,
  const double& BigSide, const double& SmallSide,
- const unsigned int& Edges) {
+ const int& Edges) {
     if (BigSide <= 0 || Height <= 0 || SmallSide <= 0
 || Edges < 3 || SmallSide > BigSide) {
         throw std::string("Incorrect data");
@@ -210,8 +209,8 @@ double Icosahedron(const double& Side) {
     return V;
 }
 
-double EquilateralPolyhedron(const unsigned int& Edges,
- const unsigned int& Vertexes, const double& Side,
+double EquilateralPolyhedron(const int& Edges,
+ const int& Vertexes, const double& Side,
  const double& DescribedSphereRadius) {
     if (Side <= 0 || DescribedSphereRadius <= 0
 || Vertexes < 3 || Edges < 4) {
