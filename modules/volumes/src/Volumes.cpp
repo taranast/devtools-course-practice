@@ -138,7 +138,8 @@ double Ellipsoid(const double& MajorSemiaxis,
 || MajorSemiaxis < SmallSemiaxis || MiddleSemiaxis < SmallSemiaxis) {
         throw std::string("Incorrect data");
     }
-    double V = (4 * 3.1415926535 * MajorSemiaxis * MiddleSemiaxis * SmallSemiaxis) / 3;
+ double V = (
+4 * 3.1415926535 * MajorSemiaxis * MiddleSemiaxis * SmallSemiaxis) / 3;
     return V;
 }
 
