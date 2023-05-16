@@ -294,7 +294,8 @@ TEST(Tarasova_Anastasiya_VolumesTest, truncated_pyramid) {
     ASSERT_NEAR(truncated_pyramid, 20.76156, 0.00001);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_truncated_pyramid) {
+TEST(Tarasova_Anastasiya_VolumesTest,
+ incorrect_data_truncated_pyramid) {
     // Assert
     EXPECT_ANY_THROW(TruncatedPyramid(0, 1, 6));
 }
@@ -328,46 +329,57 @@ TEST(Tarasova_Anastasiya_VolumesTest, barrel_big_small) {
     EXPECT_ANY_THROW(Barrel(4, 5));
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, equilateral_trucated_pyramid) {
+TEST(Tarasova_Anastasiya_VolumesTest,
+ equilateral_trucated_pyramid) {
     // Act
-    double equilateral_trucated_pyramid = EquilateralTruncatedPyramid(6, 10, 5, 4);
+    double equilateral_trucated_pyramid = EquilateralTruncatedPyramid(6,
+ 10, 5, 4);
     // Assert
     ASSERT_NEAR(equilateral_trucated_pyramid, 350, 0.00001);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_equilateral_trucated_pyramid) {
+TEST(Tarasova_Anastasiya_VolumesTest,
+ incorrect_data_equilateral_trucated_pyramid) {
     // Assert
     EXPECT_ANY_THROW(EquilateralTruncatedPyramid(-1, -6, 0, 4));
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, equilateral_trucated_pyramid_big_small) {
+TEST(Tarasova_Anastasiya_VolumesTest,
+ equilateral_trucated_pyramid_big_small) {
     // Assert
-    EXPECT_ANY_THROW(EquilateralTruncatedPyramid(6, 5, 10, 4));
+    EXPECT_ANY_THROW(EquilateralTruncatedPyramid(6,
+ 5, 10, 4));
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, test_equilateral_trucated_pyramid_incorrect_edges) {
+TEST(Tarasova_Anastasiya_VolumesTest,
+ test_equilateral_trucated_pyramid_incorrect_edges) {
     // Assert
     EXPECT_ANY_THROW(EquilateralTruncatedPyramid(5, 10, 6, 2));
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, equilateral_polyhedron) {
     // Act
-    double equilateral_polyhedron = EquilateralPolyhedron(6, 4, 5, 4.33012702);
+    double equilateral_polyhedron = EquilateralPolyhedron(6,
+ 4, 5, 4.33012702);
     // Assert
-    ASSERT_NEAR(EquilateralPolyhedron(6, 4, 5, 4.33012702), 125, 0.00001);
+    ASSERT_NEAR(EquilateralPolyhedron(6, 4, 5, 4.33012702),
+ 125, 0.00001);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_equilateral_polyhedron) {
+TEST(Tarasova_Anastasiya_VolumesTest,
+ incorrect_data_equilateral_polyhedron) {
     // Assert
     EXPECT_ANY_THROW(EquilateralPolyhedron(-1, -6, 0, 4));
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, equilateral_polyhedron_incorrect_edges) {
+TEST(Tarasova_Anastasiya_VolumesTest,
+ equilateral_polyhedron_incorrect_edges) {
     // Assert
     EXPECT_ANY_THROW(EquilateralPolyhedron(2, 10, 6, 7));
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, equilateral_polyhedron_incorrect_vertexes) {
+TEST(Tarasova_Anastasiya_VolumesTest,
+ equilateral_polyhedron_incorrect_vertexes) {
     // Assert
     EXPECT_ANY_THROW(EquilateralPolyhedron(5, 1, 6, 2));
 }
@@ -379,13 +391,15 @@ TEST(Tarasova_Anastasiya_VolumesTest, equilateral_prizm) {
     ASSERT_NEAR(equilateral_prizm, 600, 0.00001);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_equilateral_prizm) {
+TEST(Tarasova_Anastasiya_VolumesTest,
+ incorrect_data_equilateral_prizm) {
     // Assert
     EXPECT_ANY_THROW(EquilateralPrism(-1, 4, 0));
 }
 
 
-TEST(Tarasova_Anastasiya_VolumesTest, equilateral_prizm_incorrect_edges) {
+TEST(Tarasova_Anastasiya_VolumesTest,
+ equilateral_prizm_incorrect_edges) {
     // Assert
     EXPECT_ANY_THROW(EquilateralPrism(5, 10, 2));
 }
@@ -397,12 +411,14 @@ TEST(Tarasova_Anastasiya_VolumesTest, equilateral_pyramid) {
     ASSERT_NEAR(equilateral_pyramid, 200, 0.00001);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_equilateral_pyramid) {
+TEST(Tarasova_Anastasiya_VolumesTest,
+ incorrect_data_equilateral_pyramid) {
     // Assert
     EXPECT_ANY_THROW(EquilateralPyramid(-1, -6, 4));
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, equilateral_pyramid_incorrect_edges) {
+TEST(Tarasova_Anastasiya_VolumesTest,
+ equilateral_pyramid_incorrect_edges) {
     // Assert
     EXPECT_ANY_THROW(EquilateralPyramid(5, 10, 2));
 }
