@@ -4,21 +4,21 @@
 
 TEST(Tarasova_Anastasiya_VolumesTest, cube) {
     // Act
-    double cube = Parallelepiped(2, 2, 2)
+    const double cube = Parallelepiped(2, 2, 2)
     // Assert
-    GTEST_ASSERT_EQ(cube, 8);
+    ASSERT_EQ(cube, 8);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, parallelepiped) {
     // Act
-    double parallelepiped = Parallelepiped(9, 6, 2.8)
+    const double parallelepiped = Parallelepiped(9, 6, 2.8)
     // Assert
-    GTEST_ASSERT_EQ(parallelepiped, 151.2);
+    ASSERT_EQ(parallelepiped, 151.2);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_parallelepiped) {
     // Assert
-    EXPECT_ANY_THROW(Parallelepiped(9, 6, 0));
+    ASSERT_THROW(Parallelepiped(9, 6, 0), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, test_cone) {
@@ -30,11 +30,12 @@ TEST(Tarasova_Anastasiya_VolumesTest, test_cone) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_cone) {
     // Assert
-    EXPECT_ANY_THROW(EllipticalCone(-1, 0, 0));
+    ASSERT_THROW(EllipticalCone(-1, 0, 0), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, cone_big_small) {
-    EXPECT_ANY_THROW(EllipticalCone(4, 5.78, 9.6));
+    // Assert
+    ASSERT_THROW(EllipticalCone(4, 5.78, 9.6), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, truncated_cone) {
@@ -46,12 +47,12 @@ TEST(Tarasova_Anastasiya_VolumesTest, truncated_cone) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_truncated_cone) {
     // Assert
-    EXPECT_ANY_THROW(TruncatedCone(-1, 0, 0, 8, 9));
+    ASSERT_THROW(TruncatedCone(-1, 0, 0, 8, 9), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, truncated_cone_big_small) {
     // Assert
-    EXPECT_ANY_THROW(TruncatedCone(4, 5.78, 9.6, 7, 6));
+    ASSERT_THROW(TruncatedCone(4, 5.78, 9.6, 7, 6), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, truncated_cylinder) {
@@ -63,12 +64,12 @@ TEST(Tarasova_Anastasiya_VolumesTest, truncated_cylinder) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_truncated_cylinder) {
     // Assert
-    EXPECT_ANY_THROW(TruncatedCylinder(-1, 0, 0, 8));
+    ASSERT_THROW(TruncatedCylinder(-1, 0, 0, 8), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, truncated_cylinder_big_small) {
     // Assert
-    EXPECT_ANY_THROW(TruncatedCylinder(4, 5.78, 9.6, 7));
+    ASSERT_THROW(TruncatedCylinder(4, 5.78, 9.6, 7), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, paraboloid) {
@@ -80,12 +81,12 @@ TEST(Tarasova_Anastasiya_VolumesTest, paraboloid) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_paraboloid) {
     // Assert
-    EXPECT_ANY_THROW(EllipticalParaboloid(-1, 0, 0));
+    ASSERT_THROW(EllipticalParaboloid(-1, 0, 0), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, paraboloid_big_small) {
     // Assert
-    EXPECT_ANY_THROW(EllipticalParaboloid(4, 5.78, 9.6));
+    ASSERT_THROW(EllipticalParaboloid(4, 5.78, 9.6), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, ball) {
@@ -104,12 +105,12 @@ TEST(Tarasova_Anastasiya_VolumesTest, ellipsoid) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_ellipsoid) {
     // Assert
-    EXPECT_ANY_THROW(Ellipsoid(-1, 8, 0));
+    ASSERT_THROW(Ellipsoid(-1, 8, 0), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, ellipsoid_big_small) {
     // Assert
-    EXPECT_ANY_THROW(Ellipsoid(4, 8, 3));
+    ASSERT_THROW(Ellipsoid(4, 8, 3), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, torus) {
@@ -121,12 +122,12 @@ TEST(Tarasova_Anastasiya_VolumesTest, torus) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_torus) {
     // Assert
-    EXPECT_ANY_THROW(Torus(0, -1));
+    ASSERT_THROW(Torus(0, -1), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, torus_big_small) {
     // Assert
-    EXPECT_ANY_THROW(Torus(5.7, 10));
+    ASSERT_THROW(Torus(5.7, 10), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, tetrahedron_int) {
@@ -138,7 +139,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, tetrahedron_int) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_tetrahedron) {
     // Assert
-    EXPECT_ANY_THROW(Tetrahedron(-1));
+    ASSERT_THROW(Tetrahedron(-1), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, tetrahedron_double) {
@@ -157,7 +158,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, octahedron_int) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_octahedron) {
     // Assert
-    EXPECT_ANY_THROW(Octahedron(0));
+    ASSERT_THROW(Octahedron(0), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, octahedron_double) {
@@ -195,7 +196,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, icosahedron_int) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_icosahedron) {
     // Assert
-    EXPECT_ANY_THROW(Icosahedron(0));
+    ASSERT_THROW(Icosahedron(0), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, icosahedron_double) {
@@ -214,12 +215,12 @@ TEST(Tarasova_Anastasiya_VolumesTest, cylinder) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_cylinder) {
     // Assert
-    EXPECT_ANY_THROW(EllipticalCylinder(-1, 8, 0));
+    ASSERT_THROW(EllipticalCylinder(-1, 8, 0), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, cylinder_big_small) {
     // Assert
-    EXPECT_ANY_THROW(EllipticalCylinder(4, 5, 9));
+    ASSERT_THROW(EllipticalCylinder(4, 5, 9), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, tube) {
@@ -231,12 +232,12 @@ TEST(Tarasova_Anastasiya_VolumesTest, tube) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_tube) {
     // Assert
-    EXPECT_ANY_THROW(Tube(-1, 8.6, 0));
+    ASSERT_THROW(Tube(-1, 8.6, 0), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, tube_big_small) {
     // Assert
-    EXPECT_ANY_THROW(Tube(4, 5, 9));
+    ASSERT_THROW(Tube(4, 5, 9), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, ball_segment) {
@@ -248,7 +249,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, ball_segment) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_ball_segment) {
     // Assert
-    EXPECT_ANY_THROW(BallSegment(8.6, 0));
+    ASSERT_THROW(BallSegment(8.6, 0), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, ball_sector) {
@@ -260,7 +261,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, ball_sector) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_ball_sector) {
     // Assert
-    EXPECT_ANY_THROW(BallSector(-0.7665, 1));
+    ASSERT_THROW(BallSector(-0.7665, 1), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, ball_layer) {
@@ -272,7 +273,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, ball_layer) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_ball_layer) {
     // Assert
-    EXPECT_ANY_THROW(BallLayer(-0.7665, 1, 4));
+    ASSERT_THROW(BallLayer(-0.7665, 1, 4), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, pyramid) {
@@ -284,7 +285,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, pyramid) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_pyramid) {
     // Assert
-    EXPECT_ANY_THROW(Pyramid(0, 1));
+    ASSERT_THROW(Pyramid(0, 1), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, truncated_pyramid) {
@@ -297,7 +298,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, truncated_pyramid) {
 TEST(Tarasova_Anastasiya_VolumesTest,
  incorrect_data_truncated_pyramid) {
     // Assert
-    EXPECT_ANY_THROW(TruncatedPyramid(0, 1, 6));
+    ASSERT_THROW(TruncatedPyramid(0, 1, 6), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, prizm) {
@@ -309,7 +310,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, prizm) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_prizm) {
     // Assert
-    EXPECT_ANY_THROW(Prizm(-7.56, 67));
+    ASSERT_THROW(Prizm(-7.56, 67), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, barrel) {
@@ -321,12 +322,12 @@ TEST(Tarasova_Anastasiya_VolumesTest, barrel) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_barrel) {
     // Assert
-    EXPECT_ANY_THROW(Barrel(-1, -6));
+    ASSERT_THROW(Barrel(-1, -6), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, barrel_big_small) {
     // Assert
-    EXPECT_ANY_THROW(Barrel(4, 5));
+    ASSERT_THROW(Barrel(4, 5), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest,
@@ -341,20 +342,20 @@ TEST(Tarasova_Anastasiya_VolumesTest,
 TEST(Tarasova_Anastasiya_VolumesTest,
  incorrect_data_equilateral_trucated_pyramid) {
     // Assert
-    EXPECT_ANY_THROW(EquilateralTruncatedPyramid(-1, -6, 0, 4));
+    ASSERT_THROW(EquilateralTruncatedPyramid(-1, -6, 0, 4), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest,
  equilateral_trucated_pyramid_big_small) {
     // Assert
-    EXPECT_ANY_THROW(EquilateralTruncatedPyramid(6,
- 5, 10, 4));
+    ASSERT_THROW(EquilateralTruncatedPyramid(6,
+ 5, 10, 4), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest,
  test_equilateral_trucated_pyramid_incorrect_edges) {
     // Assert
-    EXPECT_ANY_THROW(EquilateralTruncatedPyramid(5, 10, 6, 2));
+    ASSERT_THROW(EquilateralTruncatedPyramid(5, 10, 6, 2), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, equilateral_polyhedron) {
@@ -369,19 +370,19 @@ TEST(Tarasova_Anastasiya_VolumesTest, equilateral_polyhedron) {
 TEST(Tarasova_Anastasiya_VolumesTest,
  incorrect_data_equilateral_polyhedron) {
     // Assert
-    EXPECT_ANY_THROW(EquilateralPolyhedron(-1, -6, 0, 4));
+    ASSERT_THROW(EquilateralPolyhedron(-1, -6, 0, 4), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest,
  equilateral_polyhedron_incorrect_edges) {
     // Assert
-    EXPECT_ANY_THROW(EquilateralPolyhedron(2, 10, 6, 7));
+    ASSERT_THROW(EquilateralPolyhedron(2, 10, 6, 7), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest,
  equilateral_polyhedron_incorrect_vertexes) {
     // Assert
-    EXPECT_ANY_THROW(EquilateralPolyhedron(5, 1, 6, 2));
+    ASSERT_THROW(EquilateralPolyhedron(5, 1, 6, 2), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, equilateral_prizm) {
@@ -394,14 +395,14 @@ TEST(Tarasova_Anastasiya_VolumesTest, equilateral_prizm) {
 TEST(Tarasova_Anastasiya_VolumesTest,
  incorrect_data_equilateral_prizm) {
     // Assert
-    EXPECT_ANY_THROW(EquilateralPrism(-1, 4, 0));
+    ASSERT_THROW(EquilateralPrism(-1, 4, 0), std::string);
 }
 
 
 TEST(Tarasova_Anastasiya_VolumesTest,
  equilateral_prizm_incorrect_edges) {
     // Assert
-    EXPECT_ANY_THROW(EquilateralPrism(5, 10, 2));
+    ASSERT_THROW(EquilateralPrism(5, 10, 2), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, equilateral_pyramid) {
@@ -414,11 +415,11 @@ TEST(Tarasova_Anastasiya_VolumesTest, equilateral_pyramid) {
 TEST(Tarasova_Anastasiya_VolumesTest,
  incorrect_data_equilateral_pyramid) {
     // Assert
-    EXPECT_ANY_THROW(EquilateralPyramid(-1, -6, 4));
+    ASSERT_THROW(EquilateralPyramid(-1, -6, 4), std::string);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest,
  equilateral_pyramid_incorrect_edges) {
     // Assert
-    EXPECT_ANY_THROW(EquilateralPyramid(5, 10, 2));
+    ASSERT_THROW(EquilateralPyramid(5, 10, 2), std::string);
 }
