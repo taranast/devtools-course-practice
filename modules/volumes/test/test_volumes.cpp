@@ -11,9 +11,9 @@ TEST(Tarasova_Anastasiya_VolumesTest, cube) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, parallelepiped) {
     // Act
-    const double parallelepiped = Parallelepiped(9, 6, 2.8)
+    const double p = Parallelepiped(9, 6, 2.8)
     // Assert
-    ASSERT_EQ(parallelepiped, 151.2);
+    ASSERT_EQ(p, 151.2);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_parallelepiped) {
