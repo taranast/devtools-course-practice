@@ -6,14 +6,14 @@ TEST(Tarasova_Anastasiya_VolumesTest, test_cube) {
     // Act
     const double cube = Parallelepiped(2, 2, 2)
     // Assert
-    ASSERT_EQ(c, 8);
+    ASSERT_EQ(cube, 8);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, test_parallelepiped) {
     // Act
     const double parallelepiped = Parallelepiped(9, 6, 2.8)
     // Assert
-    ASSERT_EQ(p, 151.2);
+    ASSERT_EQ(parallelepiped, 151.2);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_parallelepiped) {
