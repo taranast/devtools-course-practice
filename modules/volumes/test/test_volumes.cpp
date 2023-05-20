@@ -5,14 +5,14 @@
 
 TEST(Tarasova_Anastasiya_VolumesTest, test_cube) {
     // Arrange & Act
-    double cube = Parallelepiped(2, 2, 2)
+    double cube = Parallelepiped(2, 2, 2);
     // Assert
     ASSERT_EQ(cube, 8);
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest, test_parallelepiped) {
     // Arrange & Act
-    double parallelepiped = Parallelepiped(9, 6, 2.8)
+    double parallelepiped = Parallelepiped(9, 6, 2.8);
     // Assert
     ASSERT_EQ(parallelepiped, 151.2);
 }
@@ -24,7 +24,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_parallelepiped) {
 
 TEST(Tarasova_Anastasiya_VolumesTest, test_cone) {
     // Arrange & Act
-    double cone = EllipticalCone(5, 6, 6)
+    double cone = EllipticalCone(5, 6, 6);
     // Assert
     ASSERT_NEAR(cone, 188.49555, 0.00001);
 }
@@ -39,7 +39,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, cone_big_small) {
     ASSERT_THROW(EllipticalCone(4, 5.78, 9.6), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, truncated_cone) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_truncated_cone) {
     // Arrange & Act
     double truncated_cone = TruncatedCone(5, 8, 8, 4.9, 4.9);
     // Assert
