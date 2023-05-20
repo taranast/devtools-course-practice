@@ -407,7 +407,7 @@ TEST(Tarasova_Anastasiya_VolumesTest,
 
 TEST(Tarasova_Anastasiya_VolumesTest, equilateral_pyramid) {
     // Act
-    equilateral_pyramid = EquilateralPyramid(6, 10, 4);
+    double equilateral_pyramid = EquilateralPyramid(6, 10, 4);
     // Assert
     ASSERT_NEAR(equilateral_pyramid, 200, 0.00001);
 }
