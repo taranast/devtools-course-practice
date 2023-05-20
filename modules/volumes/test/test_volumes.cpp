@@ -251,7 +251,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_ball_segment) {
     EXPECT_ANY_THROW(BallSegment(8.6, 0));
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, ball_seсtor) {
+TEST(Tarasova_Anastasiya_VolumesTest, ball_sector) {
     // Act
     double ball_sector = BallSector(6.7, 3);
     // Assert
