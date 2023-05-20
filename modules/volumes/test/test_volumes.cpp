@@ -1,6 +1,7 @@
 // Copyright 2023 Tarasova Anastasiya
-#include "include/Volumes.h"
+
 #include <gtest/gtest.h>
+#include "include/Volumes.h"
 
 TEST(Tarasova_Anastasiya_VolumesTest, test_cube) {
     // Act
