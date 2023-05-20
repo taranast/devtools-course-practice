@@ -2,16 +2,16 @@
 #include <gtest/gtest.h>
 #include "include/Volumes.h"
 
-TEST(Tarasova_Anastasiya_VolumesTest, cube) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_cube) {
     // Act
     const double cube = Parallelepiped(2, 2, 2)
     // Assert
-    ASSERT_EQ(cube, 8);
+    ASSERT_EQ(c, 8);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, parallelepiped) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_parallelepiped) {
     // Act
-    const double p = Parallelepiped(9, 6, 2.8)
+    const double parallelepiped = Parallelepiped(9, 6, 2.8)
     // Assert
     ASSERT_EQ(p, 151.2);
 }
@@ -55,7 +55,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, truncated_cone_big_small) {
     ASSERT_THROW(TruncatedCone(4, 5.78, 9.6, 7, 6), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, truncated_cylinder) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_truncated_cylinder) {
     // Act
     double truncated_cylinder = TruncatedCylinder(12, 8.67, 9.56, 9.56);
     // Assert
@@ -72,7 +72,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, truncated_cylinder_big_small) {
     ASSERT_THROW(TruncatedCylinder(4, 5.78, 9.6, 7), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, paraboloid) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_paraboloid) {
     // Act
     double paraboloid = EllipticalParaboloid(5, 6.8, 4);
     // Assert
@@ -89,14 +89,14 @@ TEST(Tarasova_Anastasiya_VolumesTest, paraboloid_big_small) {
     ASSERT_THROW(EllipticalParaboloid(4, 5.78, 9.6), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, ball) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_ball) {
     // Act
     double ball = Ellipsoid(6, 6, 6);
     // Assert
     ASSERT_NEAR(ball, 904.77868, 0.00001);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, ellipsoid) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_ellipsoid) {
     // Act
     double ellipsoid = Ellipsoid(6, 4, 2.7);
     // Assert
@@ -113,7 +113,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, ellipsoid_big_small) {
     ASSERT_THROW(Ellipsoid(4, 8, 3), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, torus) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_torus) {
     // Act
     double torus = Torus(10, 5.7);
     // Assert
@@ -130,7 +130,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, torus_big_small) {
     ASSERT_THROW(Torus(5.7, 10), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, tetrahedron_int) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_tetrahedron_int) {
     // Act
     double tetrahedron = Tetrahedron(6);
     // Assert
@@ -142,14 +142,14 @@ TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_tetrahedron) {
     ASSERT_THROW(Tetrahedron(-1), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, tetrahedron_double) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_tetrahedron_double) {
     // Act
     double tetrahedron = Tetrahedron(6.78);
     // Assert
     ASSERT_NEAR(tetrahedron, 36.73016, 0.00001);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, octahedron_int) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_octahedron_int) {
     // Act
     double octahedron = Octahedron(54);
     // Assert
@@ -161,14 +161,14 @@ TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_octahedron) {
     ASSERT_THROW(Octahedron(0), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, octahedron_double) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_octahedron_double) {
     // Act
     double octahedron = Octahedron(0.67);
     // Assert
     ASSERT_NEAR(octahedron, 0.14178, 0.00001);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, dodecahedron_int) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_dodecahedron_int) {
     // Act
     double dodecahedron = Dodecahedron(4);
     // Assert
@@ -180,14 +180,14 @@ TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_dodecahedron) {
     EXPECT_ANY_THROW(Dodecahedron(-8.9));
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, dodecahedron_double) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_dodecahedron_double) {
     // Act
     double dodecahedron = Dodecahedron(6.34);
     // Assert
     ASSERT_NEAR(dodecahedron, 1952.87003, 0.00001);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, icosahedron_int) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_icosahedron_int) {
     // Act
     double icosahedron = Icosahedron(56);
     // Assert
@@ -199,14 +199,14 @@ TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_icosahedron) {
     ASSERT_THROW(Icosahedron(0), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, icosahedron_double) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_icosahedron_double) {
     // Act
     double icosahedron = Icosahedron(87.65);
     // Assert
     ASSERT_NEAR(icosahedron, 1469094.71281, 0.00001);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, cylinder) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_cylinder) {
     // Act
     double cylinder = EllipticalCylinder(6, 10, 6.78);
     // Assert
@@ -223,7 +223,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, cylinder_big_small) {
     ASSERT_THROW(EllipticalCylinder(4, 5, 9), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, tube) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_tube) {
     // Act
     double tube = Tube(6.937, 3, 5.6);
     // Assert
@@ -240,7 +240,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, tube_big_small) {
     ASSERT_THROW(Tube(4, 5, 9), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, ball_segment) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_ball_segment) {
     // Act
     double ball_segment = BallSegment(10.67, 10);
     // Assert
@@ -252,7 +252,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_ball_segment) {
     ASSERT_THROW(BallSegment(8.6, 0), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, ball_sector) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_ball_sector) {
     // Act
     double ball_sector = BallSector(6.7, 3);
     // Assert
@@ -264,7 +264,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_ball_sector) {
     ASSERT_THROW(BallSector(-0.7665, 1), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, ball_layer) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_ball_layer) {
     // Act
     double ball_layer = BallLayer(2, 6.7, 4.89);
     // Assert
@@ -276,7 +276,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_ball_layer) {
     ASSERT_THROW(BallLayer(-0.7665, 1, 4), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, pyramid) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_pyramid) {
     // Act
     double pyramid = Pyramid(8, 54.67);
     // Assert
@@ -288,7 +288,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_pyramid) {
     ASSERT_THROW(Pyramid(0, 1), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, truncated_pyramid) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_truncated_pyramid) {
     // Act
     double truncated_pyramid = TruncatedPyramid(8, 3.24, 2);
     // Assert
@@ -301,7 +301,7 @@ TEST(Tarasova_Anastasiya_VolumesTest,
     ASSERT_THROW(TruncatedPyramid(0, 1, 6), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, prizm) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_prizm) {
     // Act
     double prizm = Prizm(5.78, 67);
     // Assert
@@ -313,7 +313,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, incorrect_data_prizm) {
     ASSERT_THROW(Prizm(-7.56, 67), std::string);
 }
 
-TEST(Tarasova_Anastasiya_VolumesTest, barrel) {
+TEST(Tarasova_Anastasiya_VolumesTest, test_barrel) {
     // Act
     double barrel = Barrel(8, 6.5);
     // Assert
@@ -331,7 +331,7 @@ TEST(Tarasova_Anastasiya_VolumesTest, barrel_big_small) {
 }
 
 TEST(Tarasova_Anastasiya_VolumesTest,
- equilateral_trucated_pyramid) {
+ test_equilateral_trucated_pyramid) {
     // Act
     double equilateral_trucated_pyramid = EquilateralTruncatedPyramid(6,
  10, 5, 4);
