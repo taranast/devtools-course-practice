@@ -79,17 +79,6 @@ bool Application::validateArguments(int argc, const char** argv) {
             .append(e.what());
         return false;
     }
-    char sort;
-    try {
-        sort = parseSort(argv[2]);
-    }
-    catch (const std::invalid_argument& e) {
-        message =
-            std::string("ERROR: Cant parse <sort>. ")
-            .append(e.what());
-        return false;
-    }
-
     if (argc == 3) {
         message =
             std::string("ERROR: Adjacency array is empty");
