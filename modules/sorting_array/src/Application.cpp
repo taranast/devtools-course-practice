@@ -1,9 +1,9 @@
 // Copyright 2023 Tarasova Anastasiya
 #include <string>
 #include <sstream>
+#include <cstring>
 #include "include/Application.h"
 #include "include/sorting_array.h"
-#include <cstring>
 
 size_t parseUInt(const char* arg) {
     int value = 0;
