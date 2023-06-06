@@ -3,6 +3,7 @@
 #include <sstream>
 #include "include/Application.h"
 #include "include/sorting_array.h"
+#include <cstring>
 
 size_t parseUInt(const char* arg) {
     int value = 0;
@@ -50,7 +51,7 @@ void Application::help(const char* appname) {
         .append("<sort> is char sort type\n")
         .append("<array> is an double array\n");
 
-    resp_message = std::move(sb);
+    message = std::move(sb);
 }
 
 bool Application::validateArguments(int argc, const char** argv) {
@@ -62,7 +63,7 @@ bool Application::validateArguments(int argc, const char** argv) {
         help(argv[0]);
         return false;
     } else if (argc < 3) {
-        resp_message =
+        message =
             std::string("ERROR: Input parameters amount mismatch.");
 
         return false;
@@ -73,7 +74,7 @@ bool Application::validateArguments(int argc, const char** argv) {
         count = parseUInt(argv[1]);
     }
     catch (const std::invalid_argument& e) {
-        resp_message =
+        message =
             std::string("ERROR: Cant parse <count>. ")
             .append(e.what());
         return false;
@@ -83,20 +84,20 @@ bool Application::validateArguments(int argc, const char** argv) {
         sort = parseSort(argv[2]);
     }
     catch (const std::invalid_argument& e) {
-        resp_message =
+        message =
             std::string("ERROR: Cant parse <sort>. ")
             .append(e.what());
         return false;
     }
 
     if (argc == 3) {
-        resp_message =
+        message =
             std::string("ERROR: Adjacency array is empty");
         return false;
     }
 
     if (static_cast<size_t>(argc) < (3 + count)) {
-        resp_message =
+        message =
             std::string("ERROR: Adjacency matrix "
                 "is not completely filled");
         return false;
@@ -107,7 +108,7 @@ bool Application::validateArguments(int argc, const char** argv) {
 
 std::string Application::operator()(int argc, const char** argv) {
     if (!validateArguments(argc, argv)) {
-        return resp_message;
+        return message;
     }
 
     size_t count;
@@ -118,19 +119,19 @@ std::string Application::operator()(int argc, const char** argv) {
         count = parseUInt(argv[1]);
     }
     catch (const std::invalid_argument& e) {
-        resp_message =
+        message =
             std::string("ERROR: Cant parse <count>. ")
             .append(e.what());
-        return resp_message;
+        return message;
     }
     try {
         sort = parseSort(argv[2]);
     }
     catch (const std::invalid_argument& e) {
-        resp_message =
+        message =
             std::string("ERROR: Cant parse <sort>. ")
             .append(e.what());
-        return resp_message;
+        return message;
     }
     double* array = new double[count];
     for (size_t i = 0; i < count; i++)
@@ -138,29 +139,29 @@ std::string Application::operator()(int argc, const char** argv) {
         array[i] = parseDouble(argv[3 + i]);
     }
     catch (const std::invalid_argument& e) {
-        resp_message =
+        message =
             std::string("ERROR: Cant parse matrix at index ")
             .append("[")
             .append(std::to_string(i))
             .append("]. ")
             .append(e.what());
-        return resp_message;
+        return message;
     }
     std::ostringstream stream;
     switch (sort) {
     case '1':
         SortInsert(array, count);
         stream << "Sorted array: ";
-        for (int i = 0; i < count; i++)
+        for (size_t i = 0; i < count; i++)
             stream << array[i] << " ";
         break;
     case '2':
         SortQuick(array, 0, count);
         stream << "Sorted array: ";
-        for (int i = 0; i < count; i++)
+        for (size_t i = 0; i < count; i++)
             stream << array[i] << " ";
         break;
     }
-    resp_message = stream.str();
-    return resp_message;
+    message = stream.str();
+    return message;
 }
