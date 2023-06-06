@@ -16,8 +16,14 @@ add_test(
     COMMAND ${APPLICATION}
 )
 
+set_tests_properties (${prefix}_can_Print_Help_Without_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION ""
+    LABELS "${MODULE}")
 
-
-
-
-
+add_test(
+    NAME ${prefix}_can_Check_Number_Of_Arguments
+    COMMAND ${APPLICATION} 3
+)
+set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
+    PASS_REGULAR_EXPRESSION "ERROR: Input parameters amount mismatch."
+    LABELS "${MODULE}")
