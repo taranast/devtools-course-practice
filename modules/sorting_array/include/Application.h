@@ -6,12 +6,12 @@
 
 class Application {
  public:
-   Application() = default;
-   std::string operator()(int argc, const char** argv);
+  Application() = default;
+  std::string operator()(int argc, const char** argv);
  private:
-   void help(const char* appname);
-   bool validateArguments(int argc, const char** argv);
-   std::string message;
+  void help(const char* appname);
+  bool validateArguments(int argc, const char** argv);
+  std::string message;
 };
 
 #endif  // MODULES_SORTING_ARRAY_INCLUDE_APPLICATION_H_
