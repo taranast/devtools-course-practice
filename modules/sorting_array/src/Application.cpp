@@ -19,11 +19,9 @@ char parseSort(const char* arg) {
     char op;
     if (strcmp(arg, "1") == 0) {
         op = '1';
-    }
-    else if (strcmp(arg, "2") == 0) {
+    } else if (strcmp(arg, "2") == 0) {
         op = '2';
-    }
-    else {
+    } else {
         throw std::string("Wrong sort format!");
     }
     return op;
@@ -63,8 +61,7 @@ bool Application::validateArguments(int argc, const char** argv) {
     if (argc == 1) {
         help(argv[0]);
         return false;
-    }
-    else if (argc < 3) {
+    } else if (argc < 3) {
         resp_message =
             std::string("ERROR: Input parameters amount mismatch.");
 
@@ -148,7 +145,7 @@ std::string Application::operator()(int argc, const char** argv) {
             .append("]. ")
             .append(e.what());
         return resp_message;
-    } 
+    }
     std::ostringstream stream;
     switch (sort) {
     case '1':
@@ -164,8 +161,6 @@ std::string Application::operator()(int argc, const char** argv) {
             stream << array[i] << " ";
         break;
     }
-
     resp_message = stream.str();
-
     return resp_message;
 }
