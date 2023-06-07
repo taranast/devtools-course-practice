@@ -71,7 +71,7 @@ set_tests_properties (${prefix}_can_Check_Wrong_Array_Data PROPERTIES
     LABELS "${MODULE}")
 add_test(
     NAME ${prefix}_can_Check_Overwhelmed_Array
-    COMMAND ${APPLICATION} 3 1 4 5 6 9
+    COMMAND ${APPLICATION} 4 2 4 5 6 9 78
 )
 set_tests_properties (${prefix}_can_Check_Overwhelmed_Array PROPERTIES
     PASS_REGULAR_EXPRESSION "Array is overwhelmed!"
