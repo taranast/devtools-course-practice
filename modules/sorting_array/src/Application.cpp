@@ -112,25 +112,8 @@ std::string Application::operator()(int argc, const char** argv) {
     size_t count;
     size_t sort;
     std::vector<std::vector<double>> mat;
-
-    try {
         count = parseInt(argv[1]);
-    }
-    catch (const std::invalid_argument& e) {
-        message =
-            std::string("Wrong count format!")
-            .append(e.what());
-        return message;
-    }
-    try {
         sort = parseInt(argv[2]);
-    }
-    catch (const std::invalid_argument& e) {
-        message =
-            std::string("Wrong sort format!")
-            .append(e.what());
-        return message;
-    }
     double* array = new double[count];
     for (size_t i = 0; i < count; i++)
         try {
