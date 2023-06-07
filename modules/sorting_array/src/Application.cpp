@@ -91,7 +91,7 @@ bool Application::validateArguments(int argc, const char** argv) {
     }
     if (argc == 3) {
         message =
-            std::string("ERROR: Adjacency array is empty");
+            std::string("Array is empty!");
         return false;
     }
 
