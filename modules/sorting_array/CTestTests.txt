@@ -80,6 +80,6 @@ add_test(
     NAME ${prefix}_can_Sort_Insert
     COMMAND ${APPLICATION} 3 1 2 3 1
 )
-set_tests_properties (${prefix}_can_Add_Complexs PROPERTIES
+set_tests_properties (${prefix}_can_Sort_Insert PROPERTIES
     PASS_REGULAR_EXPRESSION "Sorted array: 1 2 3 "
     LABELS "${MODULE}")
