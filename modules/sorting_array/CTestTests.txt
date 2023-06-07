@@ -52,6 +52,6 @@ add_test(
     NAME ${prefix}_can_Detect_Empty_Array
     COMMAND ${APPLICATION} 1 1
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
+set_tests_properties (${prefix}_can_Detect_Empty_Array PROPERTIES
     PASS_REGULAR_EXPRESSION "Array is empty!"
     LABELS "${MODULE}")
