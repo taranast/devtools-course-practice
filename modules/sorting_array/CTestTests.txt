@@ -25,7 +25,7 @@ add_test(
     COMMAND ${APPLICATION} 3
 )
 set_tests_properties (${prefix}_can_Check_Number_Of_Arguments PROPERTIES
-    PASS_REGULAR_EXPRESSION ""Not enough data!""
+    PASS_REGULAR_EXPRESSION "Not enough data!"
     LABELS "${MODULE}")
 add_test(
     NAME ${prefix}_can_Check_Wrong_Count_Format
