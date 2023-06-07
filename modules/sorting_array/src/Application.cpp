@@ -79,9 +79,9 @@ bool Application::validateArguments(int argc, const char** argv) {
             .append(e.what());
         return false;
     }
-    char sort;
+    int sort;
     try {
-        sort = parseSort(argv[2]);
+        sort = parseUInt(argv[2]);
     }
     catch (const std::invalid_argument& e) {
         message =
@@ -92,6 +92,12 @@ bool Application::validateArguments(int argc, const char** argv) {
     if (argc == 3) {
         message =
             std::string("ERROR: Adjacency array is empty");
+        return false;
+    }
+
+    if (sort < 1 || sort > 2) {
+        message =
+            std::string("Wrong sort value!");
         return false;
     }
 
@@ -111,7 +117,7 @@ std::string Application::operator()(int argc, const char** argv) {
     }
 
     size_t count;
-    char sort;
+    int sort;
     std::vector<std::vector<double>> mat;
 
     try {
@@ -124,7 +130,7 @@ std::string Application::operator()(int argc, const char** argv) {
         return message;
     }
     try {
-        sort = parseSort(argv[2]);
+        sort = parseUInt(argv[2]);
     }
     catch (const std::invalid_argument& e) {
         message =
@@ -148,13 +154,13 @@ std::string Application::operator()(int argc, const char** argv) {
     }
     std::ostringstream stream;
     switch (sort) {
-    case '1':
+    case 1:
         SortInsert(array, count);
         stream << "Sorted array: ";
         for (size_t i = 0; i < count; i++)
             stream << array[i] << " ";
         break;
-    case '2':
+    case 2:
         SortQuick(array, 0, count);
         stream << "Sorted array: ";
         for (size_t i = 0; i < count; i++)

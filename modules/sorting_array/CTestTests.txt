@@ -35,9 +35,9 @@ set_tests_properties (${prefix}_can_Detect_Wrong_Count_Format PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong count format!"
     LABELS "${MODULE}")
 add_test(
-    NAME ${prefix}_can_Detect_Wrong_Sort_Format
+    NAME ${prefix}_can_Detect_Wrong_Sort_Value
     COMMAND ${APPLICATION} 1 4 2
 )
-set_tests_properties (${prefix}_can_Detect_Wrong_Sort_Format PROPERTIES
-    PASS_REGULAR_EXPRESSION "Wrong sort format!"
+set_tests_properties (${prefix}_can_Detect_Wrong_Sort_Value PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong sort value!"
     LABELS "${MODULE}")
