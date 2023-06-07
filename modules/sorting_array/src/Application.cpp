@@ -75,7 +75,7 @@ bool Application::validateArguments(int argc, const char** argv) {
     }
     catch (const std::invalid_argument& e) {
         message =
-            std::string("ERROR: Cant parse <count>. ")
+            std::string("Wrong count format!")
             .append(e.what());
         return false;
     }
@@ -109,7 +109,7 @@ std::string Application::operator()(int argc, const char** argv) {
     }
     catch (const std::invalid_argument& e) {
         message =
-            std::string("ERROR: Cant parse <count>. ")
+            std::string("Wrong count format!")
             .append(e.what());
         return message;
     }
@@ -118,7 +118,7 @@ std::string Application::operator()(int argc, const char** argv) {
     }
     catch (const std::invalid_argument& e) {
         message =
-            std::string("ERROR: Cant parse <sort>. ")
+            std::string("Wrong sort format!")
             .append(e.what());
         return message;
     }
