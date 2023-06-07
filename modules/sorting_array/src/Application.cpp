@@ -16,18 +16,6 @@ size_t parseUInt(const char* arg) {
     return static_cast<size_t>(value);
 }
 
-char parseSort(const char* arg) {
-    char op;
-    if (strcmp(arg, "1") == 0) {
-        op = '1';
-    } else if (strcmp(arg, "2") == 0) {
-        op = '2';
-    } else {
-        throw std::string("Wrong sort format!");
-    }
-    return op;
-}
-
 double parseDouble(const char* arg) {
     double value = 0;
     std::stringstream s(arg);
@@ -103,8 +91,7 @@ bool Application::validateArguments(int argc, const char** argv) {
 
     if (static_cast<size_t>(argc) < (3 + count)) {
         message =
-            std::string("ERROR: Adjacency matrix "
-                "is not completely filled");
+            std::string("Array is not completely filled!");
         return false;
     }
 
