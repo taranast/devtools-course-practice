@@ -95,6 +95,12 @@ bool Application::validateArguments(int argc, const char** argv) {
         return false;
     }
 
+    if (static_cast<size_t>(argc) > (3 + count)) {
+        message =
+            std::string("Array is overrided!");
+        return false;
+    }
+
     return true;
 }
 

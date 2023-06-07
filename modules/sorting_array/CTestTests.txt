@@ -69,3 +69,10 @@ add_test(
 set_tests_properties (${prefix}_can_Detect_Wrong_Array PROPERTIES
     PASS_REGULAR_EXPRESSION "Cant parse array"
     LABELS "${MODULE}")
+add_test(
+    NAME ${prefix}_can_Detect_Overrided_Array
+    COMMAND ${APPLICATION} 3 1 4 5 6 9
+)
+set_tests_properties (${prefix}_can_Overrided_Array PROPERTIES
+    PASS_REGULAR_EXPRESSION "Array is overrided!"
+    LABELS "${MODULE}")
