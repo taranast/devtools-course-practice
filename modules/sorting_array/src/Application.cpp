@@ -151,7 +151,7 @@ std::string Application::operator()(int argc, const char** argv) {
             stream << array[i] << " ";
         break;
     case 2:
-        SortQuick(array, 0, count);
+        SortQuick(array, 0, count-1);
         stream << "Sorted array: ";
         for (size_t i = 0; i < count; i++)
             stream << array[i] << " ";
