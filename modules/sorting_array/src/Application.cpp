@@ -5,38 +5,38 @@
 #include "include/Application.h"
 #include "include/sorting_array.h"
 
-size_t parseUInt(const char* arg) {
-    int value = 0;
+size_t parseInt(const char* arg) {
+    int val = 0;
     std::stringstream s(arg);
-    s >> value;
-    if (s.fail() || value < 0) {
+    s >> val;
+    if (s.fail() || val < 0) {
         throw std::invalid_argument("Expected unsigned integer value.");
     }
 
-    return static_cast<size_t>(value);
+    return static_cast<size_t>(val);
 }
 
 double parseDouble(const char* arg) {
-    double value = 0;
+    double val = 0;
     std::stringstream s(arg);
-    s >> value;
+    s >> val;
     if (s.fail()) {
         throw std::invalid_argument("Expected double value.");
     }
 
-    return value;
+    return val;
 }
 
 void Application::help(const char* appname) {
     std::string sb;
     sb
-        .append("This program is designed to sorting array ")
+        .append("This program is designed to sort array ")
         .append("Please provide arguments in the following format:\n\n")
         .append("  $ ")
         .append(appname)
         .append(" <count> <sort> <array> \n\n")
         .append("Where <count> is an unsigned integer size of array\n")
-        .append("<sort> is char sort type\n")
+        .append("<sort> is an unsigned integer sort type (1 - Insert Sort, 2 - QuickSort\n")
         .append("<array> is an double array\n");
 
     message = std::move(sb);
@@ -52,14 +52,14 @@ bool Application::validateArguments(int argc, const char** argv) {
         return false;
     } else if (argc < 3) {
         message =
-            std::string("ERROR: Input parameters amount mismatch.");
+            std::string("Not enough data!");
 
         return false;
     }
 
     size_t count;
     try {
-        count = parseUInt(argv[1]);
+        count = parseInt(argv[1]);
     }
     catch (const std::invalid_argument& e) {
         message =
@@ -67,9 +67,9 @@ bool Application::validateArguments(int argc, const char** argv) {
             .append(e.what());
         return false;
     }
-    int sort;
+    size_t sort;
     try {
-        sort = parseUInt(argv[2]);
+        sort = parseInt(argv[2]);
     }
     catch (const std::invalid_argument& e) {
         message =
@@ -97,7 +97,7 @@ bool Application::validateArguments(int argc, const char** argv) {
 
     if (static_cast<size_t>(argc) > (3 + count)) {
         message =
-            std::string("Array is overrided!");
+            std::string("Array is overwhelmed!");
         return false;
     }
 
@@ -110,11 +110,11 @@ std::string Application::operator()(int argc, const char** argv) {
     }
 
     size_t count;
-    int sort;
+    size_t sort;
     std::vector<std::vector<double>> mat;
 
     try {
-        count = parseUInt(argv[1]);
+        count = parseInt(argv[1]);
     }
     catch (const std::invalid_argument& e) {
         message =
@@ -123,7 +123,7 @@ std::string Application::operator()(int argc, const char** argv) {
         return message;
     }
     try {
-        sort = parseUInt(argv[2]);
+        sort = parseInt(argv[2]);
     }
     catch (const std::invalid_argument& e) {
         message =
@@ -138,7 +138,7 @@ std::string Application::operator()(int argc, const char** argv) {
     }
     catch (const std::invalid_argument& e) {
         message =
-            std::string("Cant parse array")
+            std::string("Wrong array data format!")
             .append(e.what());
         return message;
     }
