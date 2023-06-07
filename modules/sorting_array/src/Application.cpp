@@ -132,10 +132,7 @@ std::string Application::operator()(int argc, const char** argv) {
     }
     catch (const std::invalid_argument& e) {
         message =
-            std::string("ERROR: Cant parse matrix at index ")
-            .append("[")
-            .append(std::to_string(i))
-            .append("]. ")
+            std::string("Cant parse array")
             .append(e.what());
         return message;
     }
