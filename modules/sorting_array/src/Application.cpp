@@ -36,7 +36,8 @@ void Application::help(const char* appname) {
         .append(appname)
         .append(" <count> <sort> <array> \n\n")
         .append("Where <count> is an unsigned integer size of array\n")
-        .append("<sort> is an unsigned integer sort type (1 - Insert Sort, 2 - QuickSort\n")
+        .append(
+"<sort> is an unsigned integer sort type (1 - Insert Sort, 2 - QuickSort\n")
         .append("<array> is an double array\n");
 
     message = std::move(sb);
