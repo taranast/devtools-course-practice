@@ -41,3 +41,17 @@ add_test(
 set_tests_properties (${prefix}_can_Detect_Wrong_Sort_Value PROPERTIES
     PASS_REGULAR_EXPRESSION "Wrong sort value!"
     LABELS "${MODULE}")
+add_test(
+    NAME ${prefix}_can_Detect_Wrong_Sort_Format
+    COMMAND ${APPLICATION} 1 e 2
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Sort_Value PROPERTIES
+    PASS_REGULAR_EXPRESSION "Wrong sort format!"
+    LABELS "${MODULE}")
+add_test(
+    NAME ${prefix}_can_Detect_Empty_Array
+    COMMAND ${APPLICATION} 1 1
+)
+set_tests_properties (${prefix}_can_Detect_Wrong_Operation_Format PROPERTIES
+    PASS_REGULAR_EXPRESSION "Array is empty!"
+    LABELS "${MODULE}")
